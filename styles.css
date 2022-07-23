@@ -1,0 +1,94 @@
+:root {
+  --nav-height: 5rem;
+  --bg: red;
+  --icon-size: calc(var(--nav-height) / 2);
+  --anim-speed: 0.5s;
+}
+
+* {
+  transition: all var(--anim-speed);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  /* solving the ssue of scrollbar */
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  background-color: white;
+  height: var(--nav-height);
+  padding: 0 var(--icon-size);
+  gap: var(--icon-size);
+  border-radius: var(--nav-height);
+}
+
+.icon {
+  --disabled-color: #ccc;
+  font-size: var(--icon-size);
+  color: var(--disabled-color);
+}
+
+.icon-div {
+  /* outline: 2px solid green; */
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.icon-div.active .icon {
+  color: var(--bg);
+}
+
+.icon-div:active {
+  --angle: 20deg;
+  transform: rotate(var(--angle));
+  /* background-color: var(--bg); */
+}
+
+.icon-div::before {
+  --top-visible: calc(-1 * var(--nav-height) / 3);
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Poppins';
+  width: max-content;
+  z-index: -1;
+  opacity: 0;
+}
+
+.icon-div.active::before {
+  animation: showDataText calc(var(--anim-speed) * 3);
+}
+
+@keyframes showDataText {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+    top: var(--top-visible);
+  }
+
+  80% {
+    opacity: 1;
+    top: var(--top-visible);
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
