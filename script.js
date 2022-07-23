@@ -1,4 +1,33 @@
 function createNav(arrayIcons, options) {
+  addLibraries();
+
+  function addLibraries() {
+    let CSSLibraries;
+
+    if (options.isHTMLOnly == true) {
+      CSSLibraries = Object.values({
+        FontAwesome:
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
+      });
+    } else {
+      CSSLibraries = Object.values({
+        myCSS:
+          'https://cdn.jsdelivr.net/gh/mrpaulishaili/JS-Navbar-Library/styles.min.css',
+        FontAwesome:
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
+      });
+    }
+
+    CSSLibraries.forEach((library) => {
+      let linkTag = document.createElement('link');
+
+      linkTag.rel = 'stylesheet';
+      linkTag.type = 'text/css';
+      linkTag.href = library;
+
+      document.querySelector('head').appendChild(linkTag);
+    });
+  }
   let bodyElement = document.querySelector('body');
   let navContainer = setNavElement();
 

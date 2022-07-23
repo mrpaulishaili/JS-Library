@@ -5,22 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- css -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- fontawesome is required -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <title>navbar Javascript Library</title>
   </head>
   <body>
     <nav></nav>
 
-    <script src="https://cdn.jsdelivr.net/gh/mrpaulishaili/JS-Library/script.min.js"></script>
+    <!-- <script src="/script.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/gh/mrpaulishaili/JS-Navbar-Library/script.min.js"></script>
 
     <script>
       createNav(
@@ -48,6 +40,7 @@
         ],
         {
           navElement: '.nav',
+          isHTMLOnly: true,
         }
       );
     </script>
